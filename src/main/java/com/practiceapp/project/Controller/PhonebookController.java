@@ -22,34 +22,39 @@ public class PhonebookController {
 	@Autowired
 	private PhoneBookService service;
 	
+	//create a new contact
 	@PostMapping("/create")
 	public Phonebook createContact(@RequestBody Phonebook book) {
 		return service.createContact(book);	
 	}
+	//create multiple new contacts
 	@PostMapping("/createall")
 	public List<Phonebook> createMultipleContacts(@RequestBody List<Phonebook> books){
 		return service.createAllContact(books);
 	}
-	
+	//get contact by id
 	@GetMapping("/getbyid/{id}")
 	public Phonebook getOneContact(@PathVariable int id) {
 		return service.getContactById(id);
 	}
+	//get all contact
 	@GetMapping("/getall")
 	public List<Phonebook> getMultipleContact() {
 		return service.getAllContact();
 	}
+	//delete a contact
 	@DeleteMapping("/deletebyid/{id}")
 	public String deleteOne(@PathVariable int id) {
 		service.deleteContactById(id);
 		return "Single contact deleted";
 	}
+	//delete all contacts
 	@DeleteMapping("/deleteall")
 	public String deleteAllContacts() {
 		service.deleteAllContact();
 		return "All  contacts deleted";
 	}
-	
+	//update a contact
 	@PutMapping("/update")
 	public Phonebook updateContact(Phonebook book1) {
 		return service.updateContact(book1);
