@@ -23,17 +23,17 @@ public class PhonebookController {
 	private PhoneBookService service;
 	
 	//create a new contact
-	@PostMapping("/create")
+	@PostMapping("/createone")
 	public Phonebook createContact(@RequestBody Phonebook book) {
 		return service.createContact(book);	
 	}
 	//create multiple new contacts
-	@PostMapping("/createall")
+	@PostMapping("/createallcontacts")
 	public List<Phonebook> createMultipleContacts(@RequestBody List<Phonebook> books){
 		return service.createAllContact(books);
 	}
 	//get contact by id
-	@GetMapping("/getbyid/{id}")
+	@GetMapping("/getcontactbyid/{id}")
 	public Phonebook getOneContact(@PathVariable int id) {
 		return service.getContactById(id);
 	}
