@@ -26,7 +26,7 @@ public class PhoneBookService {
 	
 	@SuppressWarnings("deprecation")
 	public Phonebook getContactById(int id) {
-		return phone.getReferenceById(id);
+		return phone.findById(id).get();
 	
 	}
 	
